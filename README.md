@@ -16,8 +16,14 @@ Next, install the template directly from this repo:
 cookiecutter https://github.com/kpeez/foxlab-cookie.git
 ```
 
-Finally, install the environment and the pre-commit hooks with
+Finally, install the environment and dependencies:
 
 ```bash
 make install
+```
+
+If you have added a new dependency, make sure to update the `requirements.txt` file:
+
+```bash
+make update
 ```
