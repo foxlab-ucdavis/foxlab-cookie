@@ -1,0 +1,19 @@
+{
+    "author": "Foxlab",
+    "email": "fox@foxlab.com",
+    "author_github_handle": "foxlab",
+    "project_name": "example-project",
+    "project_slug": "{{cookiecutter.project_name|lower|replace('-', '_')}}",
+    "project_description": "This is a template repository for Python projects that use Poetry for their dependency management.",
+    "create_models_directory": [
+        "y",
+        "n"
+    ],
+    "open_source_license": [
+        "MIT license",
+        "BSD license",
+        "Apache Software License 2.0",
+        "GNU General Public License v3",
+        "Not open source"
+    ]
+}
