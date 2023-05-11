@@ -13,7 +13,7 @@ pip install cookiecutter
 Next, install the template directly from this repo:
 
 ```bash
-cookiecutter https://github.com/kpeez/foxlab-cookie.git
+https://github.com/foxlab-ucdavis/foxlab-cookie.git
 ```
 
 Finally, install the environment and dependencies:
