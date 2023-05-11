@@ -5,7 +5,7 @@ import shutil
 PROJECT_DIRECTORY = Path.cwd()
 
 
-def remove(filename: str | Path) -> None:
+def remove(filename: str) -> None:
     filepath = next(PROJECT_DIRECTORY.rglob(f"{filename}"))
     if filepath.is_file():
         filepath.unlink()
@@ -16,4 +16,3 @@ def remove(filename: str | Path) -> None:
 if __name__ == "__main__":
     if "{{cookiecutter.create_models_directory}}" != "y":
         remove("models")
-
