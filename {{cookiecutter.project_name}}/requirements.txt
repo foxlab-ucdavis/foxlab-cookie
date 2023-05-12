@@ -1,3 +1,5 @@
+-e .[all]
+
 pandas
 numpy
 matplotlib

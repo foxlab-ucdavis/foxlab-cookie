@@ -12,7 +12,8 @@ update: ## Update the dependencies.
 	@echo "📦 Updating dependencies"
 	@. .venv/bin/activate && \
 	pip install --upgrade pip && \
-	pip freeze > requirements.txt
+	echo "-e .[all] \n" > requirements.txt && \
+	pip freeze >> requirements.txt
 	@echo "Dependencies updated!"
 
 .PHONY: help
