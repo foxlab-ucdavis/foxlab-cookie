@@ -1,0 +1,17 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "{{cookiecutter.project_slug}}"
+version = "0.0.1"
+description = "{{cookiecutter.project_description}}"
+authors = [{name = "{{cookiecutter.author}}", email="{{cookiecutter.email}}"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+
+[project.packages]
+include = ["{{cookiecutter.project_slug}}"]
+
+[project.urls]
+repository = "https://github.com/{{cookiecutter.author_github_handle}}/{{cookiecutter.project_name}}"
