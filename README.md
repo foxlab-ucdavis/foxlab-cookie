@@ -27,3 +27,9 @@ If you have added a new dependency, make sure to update the `requirements.txt` f
 ```bash
 make update
 ```
+
+## Initial modifications
+
+It is a good idea to make the following changes to the project after it is generated:
+
+- Update the cookiecutter.json file with your information. To do this, navigate to the `.cookiecutters` folder in your home directory and open the `cookiecutter.json` file. Update the `author`, `email`, `author_github_handle` fields. This way, the next time you generate a project, these fields will be automatically filled in.
