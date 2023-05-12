@@ -2,6 +2,7 @@
 
 Cookiecutter repo for generating python projects.
 
+
 ## Usage
 
 Make sure the `cookiecutter` package is installed:
@@ -13,7 +14,7 @@ pip install cookiecutter
 Next, install the template directly from this repo:
 
 ```bash
-https://github.com/foxlab-ucdavis/foxlab-cookie.git
+cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git
 ```
 
 Finally, install the environment and dependencies:
