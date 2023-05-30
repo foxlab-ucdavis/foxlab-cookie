@@ -1,5 +1,5 @@
 # datasets/docs
-/data
+datasets
 *.csv
 
 # IDE temp files #
