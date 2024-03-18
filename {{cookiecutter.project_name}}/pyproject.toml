@@ -1,7 +1,3 @@
-[build-system]
-requires = ["flit_core >=3.2,<4"]
-build-backend = "flit_core.buildapi"
-
 [project]
 name = "{{cookiecutter.project_slug}}"
 version = "0.0.1"
@@ -9,9 +5,71 @@ description = "{{cookiecutter.project_description}}"
 authors = [{name = "{{cookiecutter.author}}", email="{{cookiecutter.email}}"}]
 readme = "README.md"
 license = {file = "LICENSE"}
+dependencies = [
+  "pip",
+  "numpy",
+  "pandas",
+  "pyarrow",
+  "matplotlib",
+  "seaborn",
+  "scikit-learn",
+  "notebook",
+  {% if cookiecutter.create_models_directory == 'y' -%}
+  "torch",
+  {% endif -%}
+]
 
-[project.packages]
-include = ["{{cookiecutter.project_slug}}"]
 
 [project.urls]
 repository = "https://github.com/{{cookiecutter.author_github_handle}}/{{cookiecutter.project_name}}"
+
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+  # pycodestyle
+  "E",
+  "W",
+  # pyflakes
+  "F",
+  # pylint
+  "PL",
+  # isort
+  "I",
+  # flake8-bugbear
+  "B",
+  # flake8-simplify
+  "SIM",
+  # flake8-comprehensions
+  "C4",
+  # ruff
+  "RUF",
+]
+fixable = ["ALL"]
+ignore = [
+  # too many arguments
+  "PLR0913",
+  # magic number
+  "PLR2004",
+  # line too long
+  "E501",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "F401", "D104"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
