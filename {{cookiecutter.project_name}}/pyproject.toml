@@ -13,7 +13,7 @@ dependencies = [
   "matplotlib",  
   "seaborn",  
   "scikit-learn",  
-  "notebook",  
+  "notebook",
   {% if cookiecutter.create_models_directory == 'y' -%} "torch",  {% endif -%}
   ]
 
@@ -22,22 +22,7 @@ dev = [
   "ruff",
   "pytest",
   "pre-commit",
-  "mypy",
-  "typing_extensions",
-  "pandas-stubs",
-  "ipykernel",
   "notebook",
-  {% if cookiecutter.codecov == 'y' -%}
-  "pytest-cov",
-  {% endif -%}
-  {% if cookiecutter.tox == 'y' -%}
-  "tox",
-  {% endif -%}
-  {% if cookiecutter.mkdocs == 'y' -%}
-  "mkdocs",
-  "mkdocs-material",
-  "mkdocstrings[python]"
-  {% endif -%}
 ]
 
 [project.urls]
@@ -98,16 +83,5 @@ indent-style = "space"
 skip-magic-trailing-comma = false
 line-ending = "auto"
 
-[tool.mypy]
-files = ["{{cookiecutter.project_slug}}"]
-plugins = "numpy.typing.mypy_plugin"
-disallow_untyped_defs = true
-disallow_any_unimported = true
-no_implicit_optional = true
-check_untyped_defs = true
-warn_return_any = true
-warn_unused_ignores = true
-show_error_codes = true
-exclude = [".venv"]
 [tool.coverage.report]
 skip_empty = true
