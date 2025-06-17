@@ -4,28 +4,42 @@ Cookiecutter repo for generating python projects.
 
 ## Usage
 
-Make sure the `cookiecutter` package is installed:
+### Installation
+
+If you have `uv` installed, you can install cookiecutter as a tool using:
 
 ```bash
-pip install cookiecutter
+uv tool install cookiecutter
 ```
 
 Next, install the template directly from this repo:
 
 ```bash
-cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git
+uv tool run cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git
+# note: `uvx` is simply shorthand for `uv tool run`
+uvx cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git
 ```
 
-Finally, install the environment and dependencies:
+To install the environment and dependencies run:
 
 ```bash
 make install
 ```
 
-If you have added a new dependency, make sure to update the `requirements.txt` file:
+### Basic Usage
+
+When you need to add additional dependencies to your project, you can do so using:
 
 ```bash
-make update
+uv add <dependency>
+```
+
+This will automatically add the dependency to the `pyproject.toml` file, update the `uv.lock` lock file, and install the new dependency in the virtual environment.
+
+To generate a `requirements.txt` file (e.g., when sharing your project with someone who does not use `uv`), you can run:
+
+```bash
+make requirements
 ```
 
 ## Initial modifications
@@ -48,11 +62,12 @@ After generation the structure looks like:
 ├── data/                  # raw / interim / processed datasets (not committed)
 ├── models/                # model checkpoints (optional)
 ├── reports/               # generated reports / figures
-└── <project_name>/        # your git repo
-    ├── data  -> ../data
-    ├── models -> ../models
-    ├── reports -> ../reports
-    └── ... project code ...
+└── <project-name>/        # your git repo
+    ├── data     ->      ../data
+    ├── models   ->     ../models
+    ├── reports  ->    ../reports
+    ├── notebooks       # Jupyter notebooks (optional)
+    └── project_name/   # your actual project source code
 ```
 
 The symlinks under `<project_name>/` give your code convenient relative paths while keeping large artefacts out of version control.
