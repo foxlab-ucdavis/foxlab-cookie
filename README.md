@@ -67,6 +67,7 @@ After generation the structure looks like:
     ├── models   ->     ../models
     ├── reports  ->    ../reports
     ├── notebooks       # Jupyter notebooks (optional)
+    ├── docs            # documentation (e.g., tutorials, usage guides, etc)
     └── project_name/   # your actual project source code
 ```
 
