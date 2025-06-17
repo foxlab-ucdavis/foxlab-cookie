@@ -8,7 +8,7 @@ check_uv: # install `uv` if not installed
 
 install: check_uv
 	@echo "📦 Creating virtual environment and installing dependencies"
-	@uv sync --all-extras --locked
+	@uv sync --all-extras --locked --python 3.12
 	@echo "🛠️ Installing pre-commit hooks"
 	@uv run pre-commit install
 
