@@ -38,9 +38,7 @@ uv tool install cookiecutter
 Next, install the template directly from this repo:
 
 ```bash
-uv tool run cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git
-# note: `uvx` is simply shorthand for `uv tool run`
-uvx cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git
+cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git
 ```
 
 To install the environment and dependencies run:
