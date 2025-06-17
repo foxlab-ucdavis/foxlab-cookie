@@ -5,7 +5,8 @@ Cookiecutter repo for generating python projects. The lab-specific template is d
 The template now scaffolds a *workspace* directory that sits **outside** the git repository.  Your answers to the prompts create two independent names:
 
 1. `workspace_name` – top-level folder that holds large, non-versioned artefacts (defaults to `new-workspace`).
-2. `project_name` – folder that becomes the git repository (what you push to GitHub).
+2. `project-name` – folder that becomes the git repository (what you push to GitHub).
+3. `project_name` – the name of your actual project source code (defaults to `project-name` replacing `-` with `_`).
 
 After generation the structure looks like:
 
