@@ -1,5 +1,5 @@
 # datasets/docs
-datasets
+# data/ is a symlink to workspace; keep tracked
 *.csv
 
 # IDE temp files #
@@ -12,8 +12,6 @@ datasets
 
 # Python files #
 .venv
-.mypy_cache
-.ruff_cache
 dist
 build
 *.lock
@@ -21,8 +19,6 @@ build
 *.pytest_cache
 __pycache__
 
-# mkdocs documentation
-/site
 
 # OS generated files #
 ######################
@@ -45,12 +41,15 @@ parts/
 sdist/
 var/
 wheels/
+*mypy*
 share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
 
+# mkdocs documentation
+/site
 
 # Unit test / coverage reports
 htmlcov/
