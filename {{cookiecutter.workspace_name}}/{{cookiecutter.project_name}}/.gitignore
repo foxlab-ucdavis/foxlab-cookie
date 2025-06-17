@@ -1,9 +1,11 @@
-# datasets/docs
-# data/ is a symlink to workspace; keep tracked
+data
+reports
+models
 *.csv
 
 # IDE temp files #
 .vscode/
+.cursor/
 .ipynb_checkpoints
 *.egg-info
 
@@ -14,7 +16,6 @@
 .venv
 dist
 build
-*.lock
 *.whl
 *.pytest_cache
 __pycache__

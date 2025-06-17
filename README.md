@@ -38,9 +38,7 @@ uv tool install cookiecutter
 Next, install the template directly from this repo:
 
 ```bash
-uv tool run cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git
-# note: `uvx` is simply shorthand for `uv tool run`
-uvx cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git
+cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git
 ```
 
 To install the environment and dependencies run:
@@ -64,3 +62,12 @@ To generate a `requirements.txt` file (e.g., when sharing your project with some
 ```bash
 make requirements
 ```
+
+> [!NOTE] Specifying Python Version
+> By default, this template uses python 3.12. If this does not suit your needs, you can change your Python version by doing the following:
+>
+> 1. Update the `requires-python` field in `pyproject.toml`
+> 2. Update the `make install` command in the `Makefile` to use the desired Python version, e.g., `uv sync --python 3.11`
+> 3. Reinstall dependencies with: `make install` or `uv sync --python 3.11`
+>
+> Thanks to `uv`'s built-in Python management, missing interpreters will be automatically downloaded when needed.
