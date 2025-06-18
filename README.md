@@ -41,6 +41,15 @@ This template uses a workspace-first approach where you create your workspace di
    - `create_symlinks`: Choose `y` to create shared workspace directories
    - Other standard project details
 
+> [!NOTE] Updating cookiecutter template
+> If you want to update your project with the latest changes from the template, you can run:
+>
+> ```bash
+> cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git --replay
+> ```
+>
+> And follow the prompt to delete and re-download the template.
+
 ### Symlinks
 
 When you choose `create_symlinks: y`, the template automatically:
