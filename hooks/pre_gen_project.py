@@ -8,7 +8,6 @@ if not re.match(PROJECT_NAME_REGEX, project_name):
         "ERROR: The project name (%s) is not a valid Python module name. Please do not use a _ and use - instead"
         % project_name
     )
-    # Exit to cancel project
     sys.exit(1)
 
 PROJECT_SLUG_REGEX = r"^[_a-zA-Z][_a-zA-Z0-9]+$"
@@ -18,5 +17,4 @@ if not re.match(PROJECT_SLUG_REGEX, project_slug):
         "ERROR: The project slug (%s) is not a valid Python module name. Please do not use a - and use _ instead"
         % project_slug
     )
-    # Exit to cancel project
     sys.exit(1)

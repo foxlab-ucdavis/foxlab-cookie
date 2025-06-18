@@ -2,11 +2,18 @@
     "author": "Foxlab",
     "email": "fox@foxlab.com",
     "author_github_handle": "foxlab-ucdavis",
-    "workspace_name": "new-workspace",
     "project_name": "example-project",
     "project_slug": "{{cookiecutter.project_name|lower|replace('-', '_')}}",
     "project_description": "This is a template repository for Python projects.",
+    "create_symlinks": [
+        "y",
+        "n"
+    ],
     "create_models_directory": [
+        "y",
+        "n"
+    ],
+    "create_notebook_directory": [
         "y",
         "n"
     ],
