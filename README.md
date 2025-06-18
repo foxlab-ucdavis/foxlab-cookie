@@ -2,13 +2,9 @@
 
 Cookiecutter repo for generating python projects. The lab-specific template is designed to scaffold a project with a clean structure, using `uv` for dependency management and virtual environments.
 
-The template now scaffolds a *workspace* directory that sits **outside** the git repository.  Your answers to the prompts create two independent names:
+This template uses a workspace-first approach where you create your workspace directory first, then run cookiecutter from within it to generate your project.
 
-1. `workspace_name` – top-level folder that holds large, non-versioned artefacts (defaults to `new-workspace`).
-2. `project-name` – folder that becomes the git repository (what you push to GitHub).
-3. `project_name` – the name of your actual project source code (defaults to `project-name` replacing `-` with `_`).
-
-After generation the structure looks like:
+## Intended Structure
 
 ```text
 <workspace_name>/
@@ -24,9 +20,53 @@ After generation the structure looks like:
     └── project_name/   # your actual project source code
 ```
 
-The symlinks under `<project_name>/` give your code convenient relative paths while keeping large artefacts out of version control.
+## Quick Start
 
-When you run `cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git`, you will be prompted for `workspace_name` first, followed by the usual project details.
+1. **Create your workspace directory:**
+
+   ```bash
+   mkdir my-research-workspace
+   cd my-research-workspace
+   ```
+
+2. **Generate your project:**
+
+   ```bash
+   cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git
+   ```
+
+3. **Answer the prompts:**
+   - `project_name`: Name of your project (e.g., `awesome-analysis`)
+   - `create_models_directory`: Choose `y` if you need a models folder
+   - `create_symlinks`: Choose `y` to create shared workspace directories
+   - Other standard project details
+
+### Symlinks
+
+When you choose `create_symlinks: y`, the template automatically:
+
+1. **Creates shared directories** in your workspace (`../data`, `../reports`, `../models`) **only if they don't already exist** - existing directories and their contents are preserved
+2. **Creates symlinks** from your project to these directories
+3. **Keeps large files out of git** while giving your code convenient relative paths
+
+This means you can:
+
+- Share datasets between multiple projects in the same workspace
+- Keep your git repositories lightweight
+- Use simple relative paths like `./data/raw/dataset.csv` in your code
+- Organize multiple related projects under one workspace
+
+### Multiple Projects in One Workspace
+
+You can generate multiple projects in the same workspace:
+
+```bash
+cd my-research-workspace
+cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git  # Creates project-1
+cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git  # Creates project-2
+```
+
+Both projects will share the same `data/`, `models/`, and `reports/` directories through symlinks.
 
 ## Installation
 
