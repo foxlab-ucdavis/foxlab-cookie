@@ -1,0 +1,35 @@
+set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
+
+# Install `uv` if not installed
+check_uv:
+    @if ! command -v uv > /dev/null 2>&1; then echo "uv is not installed, installing now..."; curl -LsSf https://astral.sh/uv/install.sh | sh; fi
+
+# Create virtual environment and install dependencies
+install: check_uv
+    @echo "📦 Creating virtual environment and installing dependencies"
+    @uv sync --all-extras --locked --python 3.12
+    @echo "🛠️ Installing pre-commit hooks"
+    @uv run pre-commit install
+
+# Export dependencies to requirements.txt
+requirements: check_uv
+    @echo "Exporting dependencies to requirements.txt..."
+    @uv export --output-file requirements.txt --no-hashes --no-dev
+
+# Run code quality tools
+check:
+    @echo "⚡️ Linting code: Running ruff"
+    @uv run ruff check .
+    @echo "🧹 Checking code: Running pre-commit"
+    @uv run pre-commit run --all-files
+
+# Update pre-commit hooks
+update:
+    @echo "⚙️ Updating dependencies and pre-commit hooks"
+    @uv lock --upgrade
+    @just requirements
+    @uv run pre-commit autoupdate
+
+# List available recipes with their descriptions
+help:
+    @just --list --unsorted
