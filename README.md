@@ -22,6 +22,28 @@ This template uses a workspace-first approach where you create your workspace di
 
 ## Quick Start
 
+### Installation
+
+If you have `uv` installed, you can install cookiecutter as a tool using:
+
+```bash
+uv tool install cookiecutter
+```
+
+Next, install the template directly from this repo:
+
+```bash
+cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git
+```
+
+To install the environment and dependencies run:
+
+```bash
+just install
+```
+
+### Generating a Project
+
 1. **Create your workspace directory:**
 
    ```bash
@@ -77,26 +99,6 @@ cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git  # Creates proj
 
 Both projects will share the same `data/`, `models/`, and `reports/` directories through symlinks.
 
-## Installation
-
-If you have `uv` installed, you can install cookiecutter as a tool using:
-
-```bash
-uv tool install cookiecutter
-```
-
-Next, install the template directly from this repo:
-
-```bash
-cookiecutter https://github.com/foxlab-ucdavis/foxlab-cookie.git
-```
-
-To install the environment and dependencies run:
-
-```bash
-make install
-```
-
 ## Basic Usage
 
 When you need to add additional dependencies to your project, you can do so using:
@@ -110,14 +112,14 @@ This will automatically add the dependency to the `pyproject.toml` file, update 
 To generate a `requirements.txt` file (e.g., when sharing your project with someone who does not use `uv`), you can run:
 
 ```bash
-make requirements
+just requirements
 ```
 
 > [!NOTE] Specifying Python Version
 > By default, this template uses python 3.12. If this does not suit your needs, you can change your Python version by doing the following:
 >
 > 1. Update the `requires-python` field in `pyproject.toml`
-> 2. Update the `make install` command in the `Makefile` to use the desired Python version, e.g., `uv sync --python 3.11`
-> 3. Reinstall dependencies with: `make install` or `uv sync --python 3.11`
+> 2. Update the `just install` command in the `justfile` to use the desired Python version, e.g., `uv sync --python 3.11`
+> 3. Reinstall dependencies with: `just install` or `uv sync --python 3.11`
 >
 > Thanks to `uv`'s built-in Python management, missing interpreters will be automatically downloaded when needed.
