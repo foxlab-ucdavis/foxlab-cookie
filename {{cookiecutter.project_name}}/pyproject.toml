@@ -8,11 +8,9 @@ license = { file = "LICENSE" }
 requires-python = ">=3.11"
 dependencies = [
   "numpy",
-  "pandas",  
-  "pyarrow",
+  "polars",  
   "matplotlib",  
   "seaborn",  
-  "scikit-learn",  
   {% if cookiecutter.create_models_directory == 'y' -%} "torch",  {% endif -%}
   ]
 
